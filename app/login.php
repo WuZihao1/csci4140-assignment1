@@ -15,29 +15,30 @@
 			header('refresh:3; url=login.html');
 			echo "The username and the password cannot be empty";
 			exit;
-		} elseif (($username != 'username') || ($password != 'password')) {
+		} elseif (($username == 'admin') && ($password == 'minda123')) {
+			//$_SESSION['username'] = $username;
+			//$_SESSION['authenticated'] = 1;
+			$number_of_days = 30;
+			$date_of_expiry = time() + 60 * 60 * 24 * $number_of_days;
+			setcookie('username', $username, $date_of_expiry);
+			//setcookie('password', $password, $date_of_expiry);
+			//setcookie('islogin', 'yes', $date_of_expiry);
+			header('location:index.php');
+			exit;
+		}elseif (($username == 'Alice') && ($password == 'csci4140')) {
+			//$_SESSION['username'] = $username;
+			//$_SESSION['authenticated'] = 1;		
+			$number_of_days = 30;
+			$date_of_expiry = time() + 60 * 60 * 24 * $number_of_days;
+			setcookie('username', $username, $date_of_expiry);
+			//setcookie('password', $password, $date_of_expiry);
+			//setcookie('islogin', 'yes', $date_of_expiry);
+			header('location:index.php');
+		}else {
 			# 用户名或密码错误,同空的处理方式
 			header('refresh:3; url=login.html');
 			echo "The username or password are incorrect";
 			exit;
-		} elseif (($username == 'admin') && ($password == 'minda1234')) {
-			# 用户名和密码都正确,将用户信息存到Session中
-			$_SESSION['username'] = $username;
-			$_SESSION['authenticated'] = 1;
-			// 若勾选7天内自动登录,则将其保存到Cookie并设置保留7天
-			//if ($_POST['remember'] == "yes") {
-			$number_of_days = 30;
-			$date_of_expiry = time() + 60 * 60 * 24 * $number_of_days;
-			setcookie('username', $username, $date_of_expiry);
-			setcookie('password', $password, $date_of_expiry);
-			//} else {
-				// 没有勾选则删除Cookie
-			//	setcookie('username', '', time()-999);
-			//	setcookie('code', '', time()-999);
-			//}
-			// 处理完附加项后跳转到登录成功的首页
-			header('location:index.php');
-			exit;
-		}
+		} 
 	}
  ?>
