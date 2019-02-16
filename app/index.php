@@ -30,7 +30,7 @@ echo $image_in;
 		echo "Please Login";
 		$_SESSION['islogin'] = 0;
 		echo "\n";
-		echo "<a href='login.php'>LOGIN</a>";
+		echo "<a href='login.html'>LOGIN</a>";
 	}
  ?>
 
