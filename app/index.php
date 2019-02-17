@@ -97,7 +97,7 @@ echo $image_in;
 		$page=$_COOKIE['page'];
 	}
 
-	echo $num;
+	
 
 	$top=min($page*8, $num);
 	$bottom=$page-1;
